@@ -1,0 +1,5 @@
+bar-main:
+  path: /bar/
+  controller: CsrDelft\controller\BarController::main
+  methods: GET
+  defaults: { _mag: P_PUBLIC }

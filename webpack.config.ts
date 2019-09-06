@@ -16,6 +16,7 @@ const config: (env: string, argv: any) => webpack.Configuration = (env, argv) =>
 	context: contextPath,
 	entry: {
 		'app': './js/app.ts',
+		'bar': './sass/bar.scss',
 		'ledenmemory': './js/ledenmemory.ts',
 		'fxclouds': './js/effect/fxclouds.ts',
 		'fxonontdekt': './js/effect/fxonontdekt.ts',
