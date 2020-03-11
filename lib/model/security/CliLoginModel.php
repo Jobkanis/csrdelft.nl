@@ -3,6 +3,8 @@
 namespace CsrDelft\model\security;
 
 use CsrDelft\entity\security\RememberLogin;
+use CsrDelft\model\entity\security\AccessRole;
+use CsrDelft\model\entity\security\Account;
 use CsrDelft\model\entity\security\AuthenticationMethod;
 use CsrDelft\model\entity\security\LoginSession;
 use CsrDelft\repository\security\RememberLoginRepository;
@@ -29,6 +31,12 @@ class CliLoginModel extends LoginModel {
 	public static function getUid() {
 		return self::$uid;
 	}
+	public static function getAccount() {
+		$account = new Account();
+		$account->uid = self::$uid;
+		$account->perm_role = AccessRole::PubCie;
+		return $account;
+	}
 
 	/**
 	 * @return bool
@@ -48,6 +56,7 @@ class CliLoginModel extends LoginModel {
 	}
 
 	public function authenticate() {
+		return true;
 		if (!$this->validate()) {
 			die('access denied');
 		}

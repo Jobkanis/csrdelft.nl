@@ -60,6 +60,9 @@ class LoginModel extends PersistenceModel implements Validator {
 	 * @return Account|false
 	 */
 	public static function getAccount() {
+		if (MODE ==='CLI'){
+			return CliLoginModel::getAccount();
+		}
 		return AccountModel::get(static::getUid());
 	}
 
